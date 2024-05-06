@@ -41,20 +41,24 @@ class HomeScreen : AppCompatActivity() {
         val petImage = findViewById<ImageView>(R.id.imgView2)
 
         // initialise all counter variables
-        var feedCounter = 0
-        var playCounter = 0
-        var cleanCounter = 0
+        var feedCounter = 0 // will count how many time the feed button will be clicked
+        var playCounter = 0// will count how many time the play button will be clicked
+        var cleanCounter = 0// will count how many time the clean button will be clicked
 
         // Create Feed button functionality
         btnFeed.setOnClickListener {
-            feedCounter++
-            var random = (1..5).random()
+
+            if(feedCounter < 10){// Will ensure that the counter stops incrementing when it reaches 10
+                feedCounter++ // increment the counter by 1
+            }
+            var random = (1..5).random() // generate a random number between 1 and 5
+            // The switch statement will assign a petImage resource based on the value generated above
             when(random){
-                1 -> petImage.setImageResource(R.drawable.eating1)
-                2 -> petImage.setImageResource(R.drawable.eating2 )
-                3 -> petImage.setImageResource(R.drawable.eating3)
-                4 -> petImage.setImageResource(R.drawable.eating4)
-                5 -> petImage.setImageResource(R.drawable.eating5)
+                1 -> petImage.setImageResource(R.drawable.eating1)// assign the petImage to the eating1 resource
+                2 -> petImage.setImageResource(R.drawable.eating2)// assign the petImage to the eating2 resource
+                3 -> petImage.setImageResource(R.drawable.eating3)// assign the petImage to the eating3 resource
+                4 -> petImage.setImageResource(R.drawable.eating4)// assign the petImage to the eating4 resource
+                5 -> petImage.setImageResource(R.drawable.eating5)// assign the petImage to the eating5 resource
             }
 
             // Display all the counter variables
@@ -66,13 +70,14 @@ class HomeScreen : AppCompatActivity() {
         // create play button functionality
         btnPlay.setOnClickListener {
             playCounter++
-            var random = (1..5).random()
+            var random = (1..5).random()// generate a random number between 1 and 5
+            // The switch statement will assign a petImage resource based on the value generated above
             when(random){
-                1 -> petImage.setImageResource(R.drawable.playing1)
-                2 -> petImage.setImageResource(R.drawable.playing2)
-                3 -> petImage.setImageResource(R.drawable.playing3)
-                4 -> petImage.setImageResource(R.drawable.playing4)
-                5 -> petImage.setImageResource(R.drawable.playing5)
+                1 -> petImage.setImageResource(R.drawable.playing1)// assign the petImage to the playing1 resource
+                2 -> petImage.setImageResource(R.drawable.playing2)// assign the petImage to the playing2 resource
+                3 -> petImage.setImageResource(R.drawable.playing3)// assign the petImage to the playing3 resource
+                4 -> petImage.setImageResource(R.drawable.playing4)// assign the petImage to the playing4 resource
+                5 -> petImage.setImageResource(R.drawable.playing5)// assign the petImage to the playing5 resource
             }
 
             // Display all the counter variables
@@ -83,13 +88,14 @@ class HomeScreen : AppCompatActivity() {
 
         btnClean.setOnClickListener {
             cleanCounter++
-            var random = (1..5).random()
+            var random = (1..5).random()// generate a random number between 1 and 5
+            // The switch statement will assign a petImage resource based on the value generated above
             when(random){
-                1 -> petImage.setImageResource(R.drawable.clean1)
-                2 -> petImage.setImageResource(R.drawable.clean2)
-                3 -> petImage.setImageResource(R.drawable.clean3)
-                4 -> petImage.setImageResource(R.drawable.clean4)
-                5 -> petImage.setImageResource(R.drawable.clean5)
+                1 -> petImage.setImageResource(R.drawable.clean1)// assign the petImage to the clean1 resource
+                2 -> petImage.setImageResource(R.drawable.clean2)// assign the petImage to the clean2 resource
+                3 -> petImage.setImageResource(R.drawable.clean3)// assign the petImage to the clean3 resource
+                4 -> petImage.setImageResource(R.drawable.clean4)// assign the petImage to the clean4 resource
+                5 -> petImage.setImageResource(R.drawable.clean5)// assign the petImage to the clean5 resource
             }
 
             // Display all the counter variables
@@ -98,14 +104,15 @@ class HomeScreen : AppCompatActivity() {
             tvCleanResult.text = cleanCounter.toString()
         }
 
+        // Button to go back to the starting page
         btnBackToStart.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            val intent = Intent(this, MainActivity::class.java)// this will initialize a new activity
+            startActivity(intent)// start the activity that was initialized
         }
 
         // a button to clear all the fields
         btnClear.setOnClickListener {
-            val newValue = 0
+            val newValue = 0 // create a variable to reassign all the values
             tvFeedResult.text = newValue.toString()
             tvCleanResult.text = newValue.toString()
             tvPlayResult.text = newValue.toString()
@@ -115,10 +122,5 @@ class HomeScreen : AppCompatActivity() {
             feedCounter = newValue
             cleanCounter = newValue
         }
-
-
-
     }
-
-
 }
