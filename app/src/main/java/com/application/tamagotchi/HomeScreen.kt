@@ -69,7 +69,9 @@ class HomeScreen : AppCompatActivity() {
 
         // create play button functionality
         btnPlay.setOnClickListener {
-            playCounter++
+            if(playCounter < 10){// Will ensure that the counter stops incrementing when it reaches 10
+                playCounter++ // increment the counter by 1
+            }
             var random = (1..5).random()// generate a random number between 1 and 5
             // The switch statement will assign a petImage resource based on the value generated above
             when(random){
@@ -87,7 +89,9 @@ class HomeScreen : AppCompatActivity() {
         }
 
         btnClean.setOnClickListener {
-            cleanCounter++
+            if(cleanCounter < 10){// Will ensure that the counter stops incrementing when it reaches 10
+                cleanCounter++ // increment the counter by 1
+            }
             var random = (1..5).random()// generate a random number between 1 and 5
             // The switch statement will assign a petImage resource based on the value generated above
             when(random){
